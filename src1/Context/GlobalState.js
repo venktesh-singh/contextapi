@@ -6,22 +6,16 @@ const initialState = {
   employees: [
     {
       id: 1,
-      name: "Venktesh Singh",
-      location: "Lucknow",
-      designation: "Software Developer"
-    },
-    {
-        id: 2,
-        name: "Rajeev",
-        location: "Noida",
-        designation: "Software Developer"
-      }
+      name: "Sammy",
+      location: "DigitalOcean",
+      designation: "Shark"
+    }
   ]
 };
 
-export const GlobalContextState = createContext(initialState);
+export const GlobalContext = createContext(initialState);
 
-export const GlobalProviderState = ({ children }) => {
+export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   function addEmployee(employee) {
@@ -46,7 +40,7 @@ export const GlobalProviderState = ({ children }) => {
   }
 
   return (
-    <GlobalContextState.Provider
+    <GlobalContext.Provider
       value={{
         employees: state.employees,
         addEmployee,
@@ -55,6 +49,6 @@ export const GlobalProviderState = ({ children }) => {
       }}
     >
       {children}
-    </GlobalContextState.Provider>
+    </GlobalContext.Provider>
   );
 };

@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-import { GlobalContextState } from '../context/GlobalState';
+import { GlobalContext } from '../context/GlobalState';
 
 export const EditEmployee = (route) => {
-  let navigate = useNavigate();
+ let navigate  = useNavigate();;
 
-  const { employees, editEmployee } = useContext(GlobalContextState);
+  const { employees, editEmployee } = useContext(GlobalContext);
 
   const [selectedUser, setSelectedUser] = useState({
     id: null,

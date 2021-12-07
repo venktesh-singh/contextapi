@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 
-import { GlobalContextState } from '../context/GlobalState';
+import { GlobalContext } from '../context/GlobalState';
 
 export const AddEmployee = () => {
-  let navigate = useNavigate();
+  let navigate  = useNavigate();
 
-  const { addEmployee, employees } = useContext(GlobalContextState);
+  const { addEmployee, employees } = useContext(GlobalContext);
 
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
@@ -21,7 +21,7 @@ export const AddEmployee = () => {
       designation,
     };
     addEmployee(newEmployee);
-    navigate("/");
+    navigate('/');
   };
 
   return (
